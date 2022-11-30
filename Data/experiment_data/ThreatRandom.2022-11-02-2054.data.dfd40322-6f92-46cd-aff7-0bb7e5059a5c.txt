@@ -1,0 +1,512 @@
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 534 Training_Green Spatial_Cueing_Green_Location_Training 2 1000 Trial
+3 n 3 1 right = green Same right red Incongruent 1004 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+3 b 3 1 right X green Different top green Congruent 383 Training_Green Spatial_Cueing_Green_Location_Training 2 1100 Trial
+3 b 3 1 right X green Different bottom red Incongruent 508 Training_Green Spatial_Cueing_Green_Location_Training 2 1400 Trial
+2 b 2 1 top X green Different left green Congruent 955 Training_Green Spatial_Cueing_Green_Location_Training 2 1100 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 490 Training_Green Spatial_Cueing_Green_Location_Training 2 1300 Trial
+1 n 4 2 bottom = green Different left green Congruent 194 Training_Green Spatial_Cueing_Green_Location_Training 2 1300 Trial
+3 n 1 2 left = green Different top green Congruent 201 Training_Green Spatial_Cueing_Green_Location_Training 2 1100 Trial
+1 b 1 1 left X green Different right green Congruent 442 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+4 n 4 1 bottom = green Different left red Incongruent 399 Training_Green Spatial_Cueing_Green_Location_Training 2 1300 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 365 Training_Green Spatial_Cueing_Green_Location_Training 2 1100 Trial
+3 n 3 1 right = green Same right green Congruent 581 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 287 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 339 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+1 n 1 1 left = green Same left red Incongruent 383 Training_Green Spatial_Cueing_Green_Location_Training 2 1100 Trial
+1 n 1 1 left = green Different top red Incongruent 354 Training_Green Spatial_Cueing_Green_Location_Training 2 1100 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 327 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 324 Training_Green Spatial_Cueing_Green_Location_Training 2 1000 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 370 Training_Green Spatial_Cueing_Green_Location_Training 2 1400 Trial
+2 n 2 1 top = green Different left green Congruent 582 Training_Green Spatial_Cueing_Green_Location_Training 2 1200 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 404 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 b 4 1 bottom X green Different top green Congruent 509 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green Different left red Incongruent 354 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 n 4 1 bottom = green Different left green Congruent 497 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 523 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 b 2 1 top X green Same top green Congruent 454 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1400 Trial
+1 b 1 1 left X green Different top green Congruent 367 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 b 3 1 right X green Different top red Incongruent 451 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 n 3 1 right = green Different top green Congruent 367 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 347 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 n 1 1 left = green Same left red Incongruent 408 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 377 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+2 n 2 1 top = green Different left red Incongruent 378 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green Different left green Congruent 437 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 411 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+2 b 2 1 top X green Different left red Incongruent 382 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 b 1 1 left X green Same left red Incongruent 442 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1400 Trial
+1 n 1 1 left = green Different bottom green Congruent 455 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 b 4 2 bottom X green Different top green Congruent 241 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+3 b 3 1 right X green Different left green Congruent 443 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 405 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+3 n 3 1 right = green Different top green Congruent 406 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+4 n 4 1 bottom = green Different left red Incongruent 426 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 423 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+1 b 1 1 left X green Different right green Congruent 398 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 296 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 290 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 390 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 348 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green Different left red Incongruent 396 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+3 b 3 1 right X green Different bottom green Congruent 447 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 449 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 320 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+2 n 2 1 top = green Different right green Congruent 422 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+4 n 4 1 bottom = green Different right red Incongruent 378 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 b 4 2 bottom X green Different top red Incongruent 370 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green Different bottom green Congruent 466 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 660 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 b 3 1 right X green Same right green Congruent 428 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+1 n 1 1 left = green Different top green Congruent 374 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+3 n 3 1 right = green Different bottom red Incongruent 424 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 371 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Same right green Congruent 495 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1000 Trial
+3 b 3 1 right X green Different bottom red Incongruent 358 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+3 b 3 1 right X green Different top green Congruent 428 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 485 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 b 2 1 top X green Different left green Congruent 377 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 300 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+3 b 3 1 right X green Different top red Incongruent 363 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+2 n 2 1 top = green Same top red Incongruent 407 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 345 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 b 3 2 right X green Different bottom green Congruent 255 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+4 n 4 1 bottom = green Different top green Congruent 536 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 311 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 n 2 1 top = green Same top red Incongruent 412 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 415 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1000 Trial
+2 n 2 1 top = green Different left green Congruent 616 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+3 b 3 1 right X green Different bottom red Incongruent 367 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 378 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 n 4 1 bottom = green Same bottom red Incongruent 356 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+4 b 4 1 bottom X green Same bottom red Incongruent 383 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1000 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 1050 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 b 1 1 left X green Same left green Congruent 337 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 310 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 b 2 1 top X green Same top red Incongruent 372 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+3 n 3 1 right = green Different left red Incongruent 361 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 369 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 415 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 n 3 2 right = green Different bottom green Congruent 181 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 n 4 1 bottom = green Same bottom red Incongruent 469 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1000 Trial
+1 n 1 1 left = green Same left green Congruent 406 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 403 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+3 n 2 2 top = green Different left green Congruent 423 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+1 b 1 1 left X green Different top red Incongruent 492 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 n 2 2 top = green Different left red Incongruent 371 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 363 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+4 n 4 1 bottom = green Different top red Incongruent 714 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 437 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 394 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+2 b 2 1 top X green Different right green Congruent 411 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+3 n 3 1 right = green Different bottom green Congruent 439 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 686 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+2 b 2 1 top X green Different left red Incongruent 458 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 b 1 1 left X green Different top green Congruent 560 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 303 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 391 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 b 1 1 left X green Different bottom green Congruent 507 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 329 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 b 2 1 top X green Same top green Congruent 460 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 268 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 b 1 1 left X green Different right red Incongruent 372 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+4 n 4 1 bottom = green Different top red Incongruent 410 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 n 3 2 right = green Different bottom green Congruent 224 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 408 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 b 1 1 left X green Same left green Congruent 395 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+2 n 2 1 top = green Different left red Incongruent 599 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 395 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+3 b 2 2 top X green Different right red Incongruent 383 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+1 n 1 1 left = green Different right red Incongruent 358 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 b 2 1 top X green Different left green Congruent 479 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 b 2 1 top X green Different bottom green Congruent 533 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 b 4 1 bottom X green Different right red Incongruent 416 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+1 b 1 1 left X green Different bottom green Congruent 675 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 502 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green Different right green Congruent 529 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 b 4 1 bottom X green Different left green Congruent 1035 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 393 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 602 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 n 1 1 left = green Different top green Congruent 666 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 b 4 1 bottom X green Different left red Incongruent 612 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 454 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 525 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+1 n 1 1 left = green Different top red Incongruent 374 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 n 2 1 top = green Different right green Congruent 435 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+2 n 2 1 top = green Different bottom red Incongruent 465 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 448 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 517 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 372 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 n 1 1 left = green Same left red Incongruent 389 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+4 n 4 1 bottom = green Different right green Congruent 1118 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green Different bottom red Incongruent 509 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 407 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 401 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 n 3 1 right = green Different top red Incongruent 376 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+3 b 3 1 right X green Same right red Incongruent 384 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 419 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+3 n 3 1 right = green Different left red Incongruent 417 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 n 1 1 left = green Different right red Incongruent 527 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+4 n 4 1 bottom = green Different left red Incongruent 562 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 n 1 1 left = green Different bottom red Incongruent 383 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 b 4 1 bottom X green Different left green Congruent 716 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 600 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 365 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 n 4 1 bottom = green Same bottom green Congruent 421 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1000 Trial
+3 b 3 1 right X green Different left red Incongruent 353 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 b 1 1 left X green Different bottom red Incongruent 430 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 544 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 n 2 1 top = green Same top red Incongruent 378 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 375 Control_Green Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+1 n 1 1 left = green Different top red Incongruent 354 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 n 2 1 top = green Different right red Incongruent 450 Control_Green Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+3 b 3 1 right X green Different top green Congruent 226 Control_Green Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 b 4 1 bottom X green Same bottom red Incongruent 570 Control_Green Spatial_Cueing_Green_Location_IncongVal 2 1400 Trial
+3 n 3 1 right = green Same right green Congruent 602 Control_Green Spatial_Cueing_Green_Location_CongVal 2 1400 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 3 Calme
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 4 Colère
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 5 Deprime
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 6 Joie
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 3 Stress
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 1 Tension
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 1 Angoisse
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleControl FearScale 2 NA Emotion 1 Nervosite
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 313 Trial1GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 n 1 1 left = green Different right red Incongruent 402 Trial1GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 b 1 2 left X green Different right green Congruent 211 Trial1GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 n 3 1 right = green Different top green Congruent 231 Trial1GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 390 Trial1GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 n 1 1 left = green Different bottom red Incongruent 304 Trial1GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 b 2 1 top X green Different left red Incongruent 327 Trial1GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 n 3 1 right = green Different left red Incongruent 320 Trial1GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 b 1 1 left X green Different right green Congruent 380 Trial1GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 343 Trial1GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 n 1 1 left = green Same left red Incongruent 415 Trial1GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 385 Trial1GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 8 ExpM3
+4 n 4 1 bottom = green Same bottom red Incongruent 835 Trial2GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1400 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 350 Trial2GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 b 1 1 left X green Different right red Incongruent 306 Trial2GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+1 b 1 1 left X green Different right green Congruent 326 Trial2GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+1 b 1 1 left X green Different right green Congruent 336 Trial2GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 n 3 1 right = green Different left red Incongruent 403 Trial2GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 b 2 1 top X green Same top green Congruent 493 Trial2GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 366 Trial2GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 492 Trial2GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 4 ExpF2
+4 n 4 1 bottom = green Same bottom red Incongruent 410 Trial3GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1400 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 351 Trial3GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 410 Trial3GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 n 2 2 top = green Different left green Congruent 135 Trial3GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green Different bottom red Incongruent 317 Trial3GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green Different bottom green Congruent 482 Trial3GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 4 ExpF2
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 322 Trial4GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 376 Trial4GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 n 4 1 bottom = green Different left green Congruent 612 Trial4GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+3 b 3 1 right X green Same right green Congruent 627 Trial4GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 337 Trial4GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 375 Trial4GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Different top red Incongruent 404 Trial4GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+4 b 4 1 bottom X green Different left green Congruent 477 Trial4GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 b 1 1 left X green Same left red Incongruent 379 Trial4GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+4 n 4 1 bottom = green Same bottom green Congruent 292 Trial4GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+3 n 2 2 top = green Different left green Congruent 479 Trial4GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+1 b 1 1 left X green Different bottom red Incongruent 396 Trial4GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 b 1 1 left X green Different top red Incongruent 499 Trial4GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 b 4 2 bottom X green Different top red Incongruent 457 Trial4GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 8 ExpM3
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 429 Trial5GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 419 Trial5GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 747 Trial5GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Same right green Congruent 533 Trial5GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1000 Trial
+2 n 2 1 top = green Different right red Incongruent 358 Trial5GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+2 b 2 1 top X green Different bottom green Congruent 532 Trial5GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 n 4 1 bottom = green Different right red Incongruent 407 Trial5GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 7 ExpM2
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 441 Trial6GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 496 Trial6GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 n 1 1 left = green Same left red Incongruent 374 Trial6GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+2 n 2 1 top = green Different bottom red Incongruent 584 Trial6GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+4 n 4 1 bottom = green Different left green Congruent 611 Trial6GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+2 b 2 1 top X green Different left red Incongruent 471 Trial6GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+2 b 2 1 top X green Different left green Congruent 475 Trial6GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 412 Trial6GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 b 1 1 left X green Different top green Congruent 521 Trial6GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 5 ExpF3
+1 n 1 1 left = green Different right red Incongruent 462 Trial7GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 517 Trial7GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green Same bottom red Incongruent 727 Trial7GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 663 Trial7GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+1 b 1 1 left X green Different right green Congruent 435 Trial7GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green Different bottom green Congruent 632 Trial7GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 305 Trial7GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 5 ExpF3
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 467 Trial8GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 406 Trial8GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Different top red Incongruent 412 Trial8GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+4 n 4 1 bottom = green Different right green Congruent 861 Trial8GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 501 Trial8GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 412 Trial8GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+4 b 4 1 bottom X green Different left green Congruent 445 Trial8GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green Different bottom green Congruent 488 Trial8GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 368 Trial8GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 n 4 1 bottom = green Different left red Incongruent 874 Trial8GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 576 Trial8GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 n 1 1 left = green Different bottom red Incongruent 404 Trial8GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+3 n 3 1 right = green Different top red Incongruent 362 Trial8GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 4 ExpF2
+4 n 4 1 bottom = green Different left green Congruent 704 Trial9GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+4 b 4 1 bottom X green Different right red Incongruent 402 Trial9GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 n 1 1 left = green Different bottom red Incongruent 319 Trial9GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 422 Trial9GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 n 4 1 bottom = green Same bottom red Incongruent 357 Trial9GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+2 b 2 1 top X green Same top green Congruent 431 Trial9GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 318 Trial9GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 318 Trial9GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+2 b 2 1 top X green Different bottom green Congruent 478 Trial9GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+3 n 4 2 bottom = green Different top green Congruent 631 Trial9GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 8 ExpM3
+2 n 2 1 top = green Different bottom red Incongruent 418 Trial10GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+4 b 4 1 bottom X green Different right green Congruent 559 Trial10GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 n 2 1 top = green Different bottom green Congruent 403 Trial10GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+1 n 1 1 left = green Different right red Incongruent 374 Trial10GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+1 b 1 1 left X green Same left red Incongruent 416 Trial10GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 336 Trial10GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Different left green Congruent 659 Trial10GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 332 Trial10GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 328 Trial10GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 410 Trial10GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 b 1 1 left X green Different top red Incongruent 309 Trial10GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 n 1 1 left = green Same left green Congruent 318 Trial10GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 5 ExpF3
+2 b 2 1 top X green Different bottom red Incongruent 469 Trial11GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 376 Trial11GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 n 1 1 left = green Same left red Incongruent 345 Trial11GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 436 Trial11GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+4 b 4 1 bottom X green Different left red Incongruent 372 Trial11GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 4 ExpF2
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 429 Trial12GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 n 1 1 left = green Different top green Congruent 414 Trial12GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 b 2 1 top X green Different left red Incongruent 482 Trial12GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 4 ExpF2
+2 b 4 2 bottom X green Different right green Congruent 295 Trial13GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 b 1 1 left X green Different top red Incongruent 355 Trial13GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 b 3 1 right X green Same right green Congruent 445 Trial13GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 382 Trial13GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 367 Trial13GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 n 1 1 left = green Different bottom green Congruent 398 Trial13GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 4 ExpF2
+1 n 1 1 left = green Same left red Incongruent 429 Trial14GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+1 b 1 1 left X green Different top green Congruent 445 Trial14GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 6 ExpM1
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 452 Trial15GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 n 1 1 left = green Different bottom green Congruent 410 Trial15GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green Different bottom red Incongruent 586 Trial15GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 b 3 1 right X green Different bottom red Incongruent 431 Trial15GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 368 Trial15GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 376 Trial15GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 n 1 1 left = green Different right green Congruent 527 Trial15GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 n 3 1 right = green Same right red Incongruent 585 Trial15GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 6 ExpM1
+3 b 3 1 right X green Different bottom green Congruent 469 Trial16GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+4 n 4 1 bottom = green Same bottom green Congruent 382 Trial16GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 364 Trial16GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 557 Trial16GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Different top green Congruent 203 Trial16GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 b 4 1 bottom X green Different top red Incongruent 555 Trial16GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+2 b 2 1 top X green Same top red Incongruent 407 Trial16GreenThreat Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 5 ExpF3
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 445 Trial17GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 270 Trial17GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+1 n 4 2 bottom = green Different left green Congruent 211 Trial17GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+4 b 4 1 bottom X green Different right red Incongruent 308 Trial17GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 7 ExpM2
+3 n 3 1 right = green Different top red Incongruent 442 Trial18GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+4 n 4 1 bottom = green Same bottom green Congruent 350 Trial18GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 514 Trial18GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 n 1 1 left = green Different bottom red Incongruent 373 Trial18GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+4 b 4 1 bottom X green Different left green Congruent 1008 Trial18GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 b 2 1 top X green Different right green Congruent 658 Trial18GreenThreat Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 406 Trial18GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialScream ScreamSound 2 NA Sound NA NA 8 ExpM3
+2 n 3 2 right = green Same right green Congruent 243 Trial19GreenThreat Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 407 Trial19GreenThreat Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Different top red Incongruent 475 Trial19GreenThreat Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 2 Deprime
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 6 Stress
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 5 Nervosite
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 1 Calme
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 7 Angoisse
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 1 Joie
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 3 Colère
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleThreat FearScale 2 NA Emotion 7 Tension
+1 b 2 2 top X green Different left green Congruent 467 Trial4GreenToon Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+2 b 2 1 top X green Same top green Congruent 447 Trial4GreenToon Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 389 Trial4GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 389 Trial4GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 350 Trial4GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 386 Trial4GreenToon Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+4 n 4 1 bottom = green Different top green Congruent 536 Trial4GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+4 b 4 1 bottom X green Different left red Incongruent 473 Trial4GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+3 n 3 1 right = green Different left red Incongruent 451 Trial4GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 n 3 1 right = green Different left green Congruent 384 Trial4GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green Different left red Incongruent 383 Trial4GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+1 b 1 1 left X green Same left red Incongruent 384 Trial4GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 318 Trial4GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 b 2 1 top X green Different left red Incongruent 416 Trial4GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 9 TOON1
+4 n 4 1 bottom = green Different top red Incongruent 348 Trial10GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 b 1 1 left X green Different bottom red Incongruent 336 Trial10GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 b 4 1 bottom X green Different top red Incongruent 378 Trial10GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 423 Trial10GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 445 Trial10GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+2 n 2 1 top = green Same top red Incongruent 445 Trial10GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 391 Trial10GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 b 3 2 right X green Different left green Congruent 237 Trial10GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green Different bottom green Congruent 488 Trial10GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 b 2 1 top X green Same top green Congruent 431 Trial10GreenToon Spatial_Cueing_Green_Location_CongVal 2 1000 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 428 Trial10GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 n 3 1 right = green Different bottom green Congruent 479 Trial10GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 12 TOON4
+1 b 1 1 left X green Different top green Congruent 660 Trial6GreenToon Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+2 b 2 1 top X green Same top red Incongruent 371 Trial6GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+4 b 4 1 bottom X green Different right green Congruent 529 Trial6GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green Different bottom green Congruent 509 Trial6GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 381 Trial6GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 290 Trial6GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 403 Trial6GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+4 n 4 1 bottom = green Different top red Incongruent 401 Trial6GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 n 3 1 right = green Different bottom red Incongruent 359 Trial6GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 14 TOON6
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 363 Trial16GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+3 b 3 1 right X green Different left red Incongruent 380 Trial16GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 350 Trial16GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 b 3 1 right X green Same right green Congruent 391 Trial16GreenToon Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+2 n 2 1 top = green Different right green Congruent 397 Trial16GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+1 n 1 1 left = green Same left red Incongruent 398 Trial16GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1000 Trial
+3 n 3 1 right = green Different top green Congruent 321 Trial16GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 14 TOON6
+4 n 4 1 bottom = green Same bottom red Incongruent 435 Trial14GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+3 b 3 1 right X green Different bottom green Congruent 539 Trial14GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 10 TOON2
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 319 Trial8GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+3 b 4 2 bottom X green Different top green Congruent 286 Trial8GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+4 b 4 1 bottom X green Same bottom green Congruent 204 Trial8GreenToon Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 376 Trial8GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+2 n 2 1 top = green Different bottom red Incongruent 470 Trial8GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+3 n 3 1 right = green Different bottom red Incongruent 470 Trial8GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+1 n 1 1 left = green Different bottom red Incongruent 365 Trial8GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 367 Trial8GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 327 Trial8GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+1 n 1 1 left = green Different top green Congruent 609 Trial8GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+4 n 4 1 bottom = green Different top green Congruent 922 Trial8GreenToon Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+2 n 2 1 top = green Different left red Incongruent 454 Trial8GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 343 Trial8GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 11 TOON3
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 353 Trial5GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 352 Trial5GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+1 b 1 1 left X green Different right green Congruent 397 Trial5GreenToon Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+2 n 2 1 top = green Different bottom red Incongruent 413 Trial5GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 404 Trial5GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+1 b 1 1 left X green Different top red Incongruent 398 Trial5GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 n 3 2 right = green Same right green Congruent 864 Trial5GreenToon Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 10 TOON2
+3 b 3 1 right X green Different bottom red Incongruent 355 Trial3GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+3 b 3 1 right X green Different top green Congruent 526 Trial3GreenToon Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 348 Trial3GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 b 4 1 bottom X green Different right green Congruent 733 Trial3GreenToon Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 331 Trial3GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 b 4 1 bottom X green Same bottom red Incongruent 442 Trial3GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 9 TOON1
+1 b 1 1 left X green Different top green Congruent 535 Trial15GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 375 Trial15GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 404 Trial15GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 462 Trial15GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+2 n 2 1 top = green Different right red Incongruent 464 Trial15GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+2 b 2 1 top X green Same top red Incongruent 377 Trial15GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1200 Trial
+3 b 3 1 right X green Different bottom red Incongruent 625 Trial15GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 n 2 2 top = green Different bottom green Congruent 529 Trial15GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 13 TOON5
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 330 Trial17GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 b 4 1 bottom X green Different right red Incongruent 464 Trial17GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+3 b 3 1 right X green Different top green Congruent 347 Trial17GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+3 b 3 1 right X green Same right green Congruent 497 Trial17GreenToon Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 14 TOON6
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 395 Trial1GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+4 n 4 1 bottom = green Different top red Incongruent 399 Trial1GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+3 n 3 1 right = green Different top red Incongruent 429 Trial1GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+3 b 3 1 right X green Different left green Congruent 479 Trial1GreenToon Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 1010 Trial1GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 722 Trial1GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 b 1 1 left X green Same left red Incongruent 412 Trial1GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1000 Trial
+2 n 2 1 top = green Different right green Congruent 374 Trial1GreenToon Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+3 b 3 1 right X green Different top red Incongruent 446 Trial1GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green Different top red Incongruent 444 Trial1GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+1 b 1 1 left X green Different right green Congruent 534 Trial1GreenToon Spatial_Cueing_Green_Location_CongInval 2 1000 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 375 Trial1GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 14 TOON6
+4 n 4 1 bottom = green NoLocation NoCue white NoCongruency 547 Trial11GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+2 b 2 1 top X green Same top red Incongruent 575 Trial11GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1100 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 428 Trial11GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+4 b 4 1 bottom X green Different right red Incongruent 422 Trial11GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+4 n 4 1 bottom = green Different left red Incongruent 488 Trial11GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1300 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 10 TOON2
+3 b 3 1 right X green Different top red Incongruent 348 Trial18GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+1 n 1 1 left = green Different right green Congruent 478 Trial18GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 n 3 1 right = green NoLocation NoCue white NoCongruency 387 Trial18GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+4 n 4 1 bottom = green Different left red Incongruent 410 Trial18GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+1 b 1 1 left X green Same left green Congruent 262 Trial18GreenToon Spatial_Cueing_Green_Location_CongVal 2 1200 Trial
+3 b 3 1 right X green Different left green Congruent 380 Trial18GreenToon Spatial_Cueing_Green_Location_CongInval 2 1400 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 320 Trial18GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 10 TOON2
+3 n 2 2 top = green NoLocation NoCue white NoCongruency 789 Trial7GreenToon Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 b 1 1 left X green Different top green Congruent 416 Trial7GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 325 Trial7GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 323 Trial7GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+3 n 3 1 right = green Different bottom green Congruent 533 Trial7GreenToon Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 b 1 1 left X green Same left red Incongruent 332 Trial7GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1000 Trial
+1 n 1 1 left = green Different top red Incongruent 352 Trial7GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 9 TOON1
+4 n 4 1 bottom = green Different left red Incongruent 460 Trial2GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green NoLocation NoCue white NoCongruency 369 Trial2GreenToon Spatial_Cueing_Green_Location_NoCong 2 1300 Trial
+1 n 1 1 left = green Same left green Congruent 337 Trial2GreenToon Spatial_Cueing_Green_Location_CongVal 2 1400 Trial
+2 b 2 1 top X green NoLocation NoCue white NoCongruency 655 Trial2GreenToon Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+3 b 3 1 right X green Different left red Incongruent 360 Trial2GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green Different bottom green Congruent 403 Trial2GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 473 Trial2GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 b 2 1 top X green Same top red Incongruent 540 Trial2GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1400 Trial
+4 b 4 1 bottom X green Different left green Congruent 892 Trial2GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 13 TOON5
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 362 Trial12GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+2 b 2 1 top X green Different right green Congruent 523 Trial12GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+2 n 2 1 top = green Different left red Incongruent 647 Trial12GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 11 TOON3
+3 b 3 1 right X green Different top red Incongruent 435 Trial19GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1200 Trial
+3 b 3 1 right X green Same right green Congruent 438 Trial19GreenToon Spatial_Cueing_Green_Location_CongVal 2 1300 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 482 Trial19GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 9 TOON1
+2 b 2 1 top X green Different left red Incongruent 447 Trial13GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1000 Trial
+1 n 1 1 left = green NoLocation NoCue white NoCongruency 356 Trial13GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+1 b 1 1 left X green Different right green Congruent 408 Trial13GreenToon Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 b 1 1 left X green Different right green Congruent 384 Trial13GreenToon Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+2 b 2 1 top X green Same top green Congruent 540 Trial13GreenToon Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+1 b 1 1 left X green NoLocation NoCue white NoCongruency 337 Trial13GreenToon Spatial_Cueing_Green_Location_NoCong 2 1000 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA TrialToon ToonSound 2 NA Sound NA NA 11 TOON3
+1 n 1 1 left = green Different bottom red Incongruent 314 Trial9GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1400 Trial
+4 b 4 1 bottom X green NoLocation NoCue white NoCongruency 714 Trial9GreenToon Spatial_Cueing_Green_Location_NoCong 2 1200 Trial
+3 n 3 1 right = green Different left green Congruent 627 Trial9GreenToon Spatial_Cueing_Green_Location_CongInval 2 1300 Trial
+1 b 1 1 left X green Same left red Incongruent 431 Trial9GreenToon Spatial_Cueing_Green_Location_IncongVal 2 1300 Trial
+3 b 3 1 right X green Different left red Incongruent 330 Trial9GreenToon Spatial_Cueing_Green_Location_IncongInval 2 1100 Trial
+4 b 4 1 bottom X green Different top green Congruent 482 Trial9GreenToon Spatial_Cueing_Green_Location_CongInval 2 1200 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 438 Trial9GreenToon Spatial_Cueing_Green_Location_NoCong 2 1400 Trial
+1 b 1 1 left X green Different right green Congruent 383 Trial9GreenToon Spatial_Cueing_Green_Location_CongInval 2 1100 Trial
+3 b 3 1 right X green Same right green Congruent 404 Trial9GreenToon Spatial_Cueing_Green_Location_CongVal 2 1100 Trial
+2 n 2 1 top = green NoLocation NoCue white NoCongruency 1011 Trial9GreenToon Spatial_Cueing_Green_Location_NoCong 2 1100 Trial
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 2 Colère
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 3 Deprime
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 2 Joie
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 1 Stress
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 1 Tension
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 1 Nervosite
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 1 Angoisse
+NA NA NA NA NA NA NA NA NA NA NA NA ScaleToon FearScale 2 NA Emotion 7 Calme
