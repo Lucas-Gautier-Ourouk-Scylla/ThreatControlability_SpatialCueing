@@ -99,20 +99,20 @@ categorization instruction (b or n)
 
 - Cueing_Validity: Rename "Cueing_Status" to match the cueing validity standards (Valid, Invalid or NoValidity)
 
-Cue_Position: The position of the cue (left, bottom, right, top or NoCue)
+- Cue_Position: The position of the cue (left, bottom, right, top or NoCue)
 
-Cue_Color: Color of the cue (red, green or white)
+- Cue_Color: Color of the cue (red, green or white)
 
-Congruency: Congruency (in terms of color) between cue and target. Congruent = same color between target and cue ; Incongruent = Different colors between target and cue ; NoCongruency = No congruency because all cues are white
+- Congruency: Congruency (in terms of color) between cue and target. Congruent = same color between target and cue ; Incongruent = Different colors between target and cue ; NoCongruency = No congruency because all cues are white
 
-RT: Response time for each trial
+- RT: Response time for each trial
 
-Blockname: Name of the block the participant is completing :
+- Blockname: Name of the block the participant is completing :
   - Training_Red/Training_Green: Training block = 20 trials of practice
   - Control_Red/Control_Green: Control block = the spatial cueing task in its original conceptualisation (144 trials)
   - TrialXRedThreat/TrialXGreenThreat: Threat block = the spatial cueing task in which participants hear screams during the task  (144 trials)
   - TrialXRedToon/TrialXGreenToon: Toon block = the spatial cueing task in which participants hear vocalizations during the task  (144 trials)
-In these three blocks, trials, the repartition of trials is as follows:
+In these three blocks of trials, the distribution of trials is as follows:
         - No-Congruency = 48
         - Congruent Valid = 12
         - Congruent Invalid = 36
@@ -124,15 +124,15 @@ In these three blocks, trials, the repartition of trials is as follows:
   - TrialScream: A screams happens
   - TrialToon: A vocalization happens
   
-Taskname: The name of the task completed by the participant for this specific trial
+- Taskname: The name of the task completed by the participant for this specific trial
 
-Order: The order of task completion. In this specific experiment all participants are exposed to the "Threat then Toon" Blockorder. 1 = ControlRed then ThreatRed then ToonRed Blocks ; 2 = ControlGreen then ThreatGreen then ToonGreen Blocks
+- Order: The order of task completion. In this specific experiment all participants are exposed to the "Threat then Toon" Blockorder. 1 = ControlRed then ThreatRed then ToonRed Blocks ; 2 = ControlGreen then ThreatGreen then ToonGreen Blocks
 
-Blockorder: The order of task completion (ThreatFirst_Red or ThreatFirst_Green)
+- Blockorder: The order of task completion (ThreatFirst_Red or ThreatFirst_Green)
 
-SOA: Duration between the fixation point and the cue happening in ms (1000ms, 1100ms, 1200ms, 1300ms, 1400ms)
+- SOA: Duration between the fixation point and the cue happening in ms (1000ms, 1100ms, 1200ms, 1300ms, 1400ms)
 
-Sound_Nb: The sound number that the participant hear. 
+- Sound_Nb: The sound number that the participant hear. 
   - 3 = ExpF1
   - 4 = ExpF2
   - 5 = ExpF3
@@ -146,21 +146,24 @@ Sound_Nb: The sound number that the participant hear.
   - 13 = TOON5 (VocM2)
   - 14 = TOON6 (VocM3)
   
-Sound_Name: The sound name that the participant hear
+- Sound_Name: The sound name that the participant hear
 
-Sound: The sound  that the participant hear (ExpF1, ExpF2, ExpF3, ExpM1, ExpM2, ExpM3, VocF1, VocF2, VocF3, VocM1, VocM2 or VocM3)
+- Sound: The sound that the participant hear (ExpF1, ExpF2, ExpF3, ExpM1, ExpM2, ExpM3, VocF1, VocF2, VocF3, VocM1, VocM2 or VocM3)
 
 
 ```{r}
-tmp <- df
+tmp <- df # Create a temporary file based on df
 
 names(tmp)[1] <- "Ppt_Response_Nb"
-tmp <- tmp %>% mutate(Ppt_Response = case_when(Ppt_Response_Nb == 1 ~ "g",
-                                               Ppt_Response_Nb == 2 ~ "b",
-                                               Ppt_Response_Nb == 3 ~ "h",
-                                               Ppt_Response_Nb == 4 ~ "y"))
+tmp <- tmp %>% mutate(Ppt_Response_Nb = replace(Ppt_Response_Nb, X4 == 3, "NoResponse"))
 
-warning("We have not fixe yet the fact that if participants don't response to the trial in the response time window (<1500ms) their 'PPt_Response' is missing")
+tmp <- tmp %>% mutate(Ppt_Response = case_when(Ppt_Response_Nb == 1 & X4 != 3 ~ "g",
+                                               Ppt_Response_Nb == 2 & X4 != 3 ~ "b",
+                                               Ppt_Response_Nb == 3 & X4 != 3 ~ "h",
+                                               Ppt_Response_Nb == 4 & X4 != 3 ~ "y", 
+                                               X4 == 3 ~ "NoResponse"))
+
+warning("If participant didn't give a response during the response time window (<1500ms), we assign Ppt_Response to 'NoResponse'. It's the same for the variable Ppt_Response_Nb")
 
 
 names(tmp)[2] <- "Catego_Key_Response"
@@ -214,7 +217,10 @@ names(tmp)[16] <- "SOA"
 names(tmp)[17] <- "Task"
 
 names(tmp)[18] <- "Emotion_Rating"
-warning("L'échelle va de 1 à 7 mais il y a également des valeurs -1 si les participant.E.s n'ont pas répondu dans la fenetre temporelle (<30s)")
+tmp <- tmp %>% mutate(Emotion_Rating = replace(Emotion_Rating, Emotion_Rating == -1, "NoResponse"))
+
+####STOP HERE !!!!
+warning("The scale is a 1 to 7 likert scale, but if participant didn't give a response during the response time window (<30s), we assign Emotion_Rating to 'NoResponse'.")
 print(paste("There is", table(tmp$Emotion_Rating)[[1]], "cells that contain a -1 value in the overall set of responses"))
 
 names(tmp)[19] <- "Emotion_Type"
