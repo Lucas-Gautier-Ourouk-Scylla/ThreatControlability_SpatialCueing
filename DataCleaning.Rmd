@@ -5,12 +5,33 @@ date: '2022-11-09'
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+This script is the data cleaning script for the project "Threat and Controllability" that study the impact of the controllability of a threat on attention processes. It use a spatial cueing paradigm.
+
+The OSf link of this project is available at: https://osf.io/ynuc2/
+
+
+```{r Knit options}
+knitr::knit_hooks$set(
+   error = function(x, options) {
+     paste('\n\n<div class="alert alert-danger">',
+           gsub('##', '\n', gsub('^##\ Error', '**Error**', x)),
+           '</div>', sep = '\n')
+   },
+   warning = function(x, options) {
+     paste('\n\n<div class="alert alert-warning">',
+           gsub('##', '\n', gsub('^##\ Warning:', '**Warning**', x)),
+           '</div>', sep = '\n')
+   },
+   message = function(x, options) {
+     paste('\n\n<div class="alert alert-info">',
+           gsub('##', '\n', x),
+           '</div>', sep = '\n')
+   }
+)
 ```
 
 # Set Up environments
-```{r setup, include=FALSE}
+```{r Package Loading, include = FALSE}
 
 cat("\014") # clear console
 rm(list=ls()) # clear workspace
@@ -22,7 +43,7 @@ rm(list=ls()) # clear workspace
 # 2nd row : Creates a list of packages that have not been installed yet (new packages)
 # 3rd row : Installs the new packages
 # 4th row : Loads all the listed packages
-list.of.packages <- c("dplyr", "emmeans", "tidyverse", "readr", "psych", "lmerTest")
+list.of.packages <- c("dplyr", "emmeans", "tidyverse", "readr", "psych", "lmerTest", "mice", "VIM", "missForest", "lavaan", "semPlot")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 invisible(lapply(list.of.packages, require, character.only = TRUE))
@@ -34,7 +55,7 @@ set.seed(42) # set overall random seed for reproducibility
 
 
 # Aim of the script : 
-Open and prepare data from the ThreatControlability project to run analysis.
+Open and prepare data from the ThreatControllability project to run analysis.
 
 
 # Build the dataframe
@@ -42,7 +63,7 @@ Open and prepare data from the ThreatControlability project to run analysis.
 ## Experiment dataframe
 ### Open files
 
-```{r}
+```{r Opening files}
 # Create a file containing each file name present in the folder
 Filelist <- list.files(path = "Data/experiment_data/") 
 # Give the number of file in the folder (it's also the number of participants)
@@ -74,12 +95,20 @@ ifelse(identical(Nb_Ppt,Nb_level)==TRUE, ("The number of participants in the fin
 
 rm(list=setdiff(ls(), c("df"))) # clear workspace except the data frame
 ```
+The total number of participants before exclusion is N = `r (nlevels(df$response_id))`
+
 
 ###Rename variables
+
+Experiment CodeBook
 
 - Ppt_Response_Nb: The response given by the participant in terms of number (1=g, 2=b, 3=h, 4=y)
 
 - Ppt_Response: The response given by the participant (g, b, h or y) in the location task
+
+- Ppt: The name of each participant
+
+- response_id: The number of each participant
 
 - Catego_Key_Response: the theoretical correct response key for the same task with a 
 
@@ -132,6 +161,21 @@ In these three blocks of trials, the distribution of trials is as follows:
 
 - SOA: Duration between the fixation point and the cue happening in ms (1000ms, 1100ms, 1200ms, 1300ms, 1400ms)
 
+- Task: the type of trial of the associated row:
+  - Trial : a trial from the spatial cueing task
+  - Sound : a sound happening in the spatial cueing task
+  - Emotion : a rating on the anxiety scale between each block of the task (these rows are removed in the final data-frame)
+  
+- Block: the type of task block associated to each trial
+  - Training: 20 trials of training
+  - Control: 144 trials of the control block (no sound heard during the task)
+  - Threat: 144 trials of the threat block (Screams happen during the task)
+  - Toon: 144 trials of the neutral block (Vocalizations happen during the task)
+  - Scale: a row referring to anxiety scale rating (these rows are removed in the final data-frame)
+  - Scream: a row referring to a scream happening
+  - Vocalization: a row referring to a vocalization happening
+  
+
 - Sound_Nb: The sound number that the participant hear. 
   - 3 = ExpF1
   - 4 = ExpF2
@@ -150,8 +194,20 @@ In these three blocks of trials, the distribution of trials is as follows:
 
 - Sound: The sound that the participant hear (ExpF1, ExpF2, ExpF3, ExpM1, ExpM2, ExpM3, VocF1, VocF2, VocF3, VocM1, VocM2 or VocM3)
 
+- Emotion_Rating: Participant rating on each anxiety scale item
 
-```{r}
+- Emotion_Type: the emotion  participant have to rate using the same name as in experiment programing ("ColÃ¨re", "Calme", "Angoisse", "Nervosite", "Joie", "Tension", "Stress", "Deprime", NA )
+
+- Emotion: the emotion  participant have to rate after renaming emotions ("Angry", "Calm", "Anxious", "Nervous", "Happy", "Tense", "Stressed", "Depressed", NA)
+
+- Counting_Trial: A count of each trial number (only for the task trials). From 1 to 452 (452 = 20 training trial + 144 trials * 3 blocks)
+
+- Counting_Sounds: A count of each trial number between two sound happenings (only for the task trials). The count is restart to 1 after a sound happens.
+
+
+`warning("I may have forgotten some variables I built in this codebook. I have to ckeck the final data frame to see if there is no missing variable !!!")`
+
+```{r Renaming variables}
 tmp <- df # Create a temporary file based on df
 
 names(tmp)[1] <- "Ppt_Response_Nb"
@@ -164,6 +220,7 @@ tmp <- tmp %>% mutate(Ppt_Response = case_when(Ppt_Response_Nb == 1 & X4 != 3 ~ 
                                                X4 == 3 ~ "NoResponse"))
 
 warning("If participant didn't give a response during the response time window (<1500ms), we assign Ppt_Response to 'NoResponse'. It's the same for the variable Ppt_Response_Nb")
+warning("We have to remove trials where participants didn't give answers to the location task")
 
 
 names(tmp)[2] <- "Catego_Key_Response"
@@ -217,11 +274,10 @@ names(tmp)[16] <- "SOA"
 names(tmp)[17] <- "Task"
 
 names(tmp)[18] <- "Emotion_Rating"
-tmp <- tmp %>% mutate(Emotion_Rating = replace(Emotion_Rating, Emotion_Rating == -1, "NoResponse"))
+# tmp <- tmp %>% mutate(Emotion_Rating = replace(Emotion_Rating, Emotion_Rating == -1, "NoResponse"))
 
-####STOP HERE !!!!
-warning("The scale is a 1 to 7 likert scale, but if participant didn't give a response during the response time window (<30s), we assign Emotion_Rating to 'NoResponse'.")
-print(paste("There is", table(tmp$Emotion_Rating)[[1]], "cells that contain a -1 value in the overall set of responses"))
+warning("Emotion_Rating is a 1 to 7 likert scale, but if participant didn't give a response during the response time window (<30s), Emotion_Rating is assigned to '-1'.")
+print(paste("There is", table(tmp$Emotion_Rating)[[1]], "cells that contain a -1 value in the overall set of responses on the anxiety scale"))
 
 names(tmp)[19] <- "Emotion_Type"
 tmp <- tmp %>% mutate(Emotion = case_when(Emotion_Type == "Angoisse" ~ "Anxious",
@@ -257,103 +313,101 @@ rm(list=setdiff(ls(), c("df"))) # clear workspace except the data frame
 ### Calculate Anxiety score
 #### Converting rows in columns
 
-```{r}
+```{r Anxiety Cells convertion}
 tmp <- df
 
 #Fear <- filter(tmp, !is.na(tmp$Emotion_Rating)) ## Create a dataframe which only contains participant ratings on emotions
 
 # Create a data frame converting emotion ratings in column instead of rows
-## For the control Block
+## For the different block (Control, Threat, Toon) at the same time
 
-# dt_Emotion <- tmp %>% filter(grepl(pattern =  "Scale", Blockname))
-# 
-# dt_Emotion <- dt_Emotion %>% 
-#   group_by(Emotion) %>% 
-#   mutate(id = response_id) %>% 
-#   pivot_wider(
-#     names_from = c(Emotion, Blockname),
-#     values_from = c(Emotion_Rating)
-#   )
+# Create a dataframe that contain only emotion rating  trials
+dt_Emotion <- tmp %>% filter(grepl(pattern =  "Scale", Blockname))
 
-dt_Control <- filter(tmp, Blockname == "ScaleControl")
-
-dt_Control <- dt_Control %>% 
-  group_by(Emotion) %>% 
-  mutate(id = response_id) %>% 
+# Convert the Emotion_Type variable into different columns associated to each emotion (= Add a column to each Emotion)
+dt_Emotion <- dt_Emotion %>%
+  group_by(Emotion, Blockname) %>%
+  mutate(id = response_id) %>%
   pivot_wider(
-    names_from = Emotion,
+    names_from = c(Emotion),
     values_from = c(Emotion_Rating)
   )
 
-dt_Control <- select(dt_Control, Blockname, Taskname, Task, response_id, Block, Angry, Calm, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
+# Select only variables that are relevant for calculating the Anxiety score  
+dt_Emotion <- select(dt_Emotion, Blockname, Taskname, Task, response_id, Block, Angry, Calm, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
 
-dt_Control <- dt_Control %>% 
+# Make sure that anxiety variable have a numeric structure
+dt_Emotion <- dt_Emotion %>% mutate_at(c("Angry", "Calm", "Anxious", "Nervous", "Happy", "Tense", "Stressed", "Depressed"), as.numeric)
+
+# Combine the 8 rows of anxiety score for each participant/block into one row
+dt_Emotion <- dt_Emotion %>% 
    group_by(Blockname, Taskname, Task, response_id, Block) %>% 
    summarize_all(sum, na.rm = TRUE)
 
+# Replace the -1 values on anxiety ratings (=no response in the response time window (<30s)) by Na values 
+dt2_Emotion <- dt_Emotion %>% 
+  mutate(Angry= na_if(Angry,-1),
+         Calm= na_if(Calm,-1),
+         Anxious= na_if(Anxious,-1),
+         Nervous= na_if(Nervous, -1),
+         Happy= na_if(Happy,-1),
+         Tense= na_if(Tense,-1),
+         Stressed= na_if(Stressed,-1),
+         Depressed= na_if(Depressed,-1))
 
-## For the Threat Block
+NA_Num <- colSums((dt_Emotion)==-1) # the number of '-1' values (=no response on the ratings) in the 1rst dataframe
+NA_Replace <- colSums(is.na(dt2_Emotion)) # the number of NA (=no response on the ratings) that replace the '-1' value in the 2nd dataframe 
+x <- c(6:13) # Create a list of emotions 
 
-dt_Threat <- filter(tmp, Blockname == "ScaleThreat")
+# Check if there is a mismatch between the number of no response on ratings before and after replacing the '-1' values by NA
+for (i in x) {
+  ifelse(near(NA_Num[[i]], NA_Replace[[i]])==TRUE, 
+         print(paste("The number of NA after replacement fit the number of '-1' values (=no response on the rating for the emotion:", names(NA_Num)[[i]])), 
+         print(paste("Warning: The number of NA after replacement doesn't fit the number of '-1' values (=no response on the rating for the emotion:", names(NA_Num)[[i]])))
+}
 
-dt_Threat <- dt_Threat %>% 
-  group_by(Emotion) %>% 
-  mutate(id = response_id) %>% 
-  pivot_wider(
-    names_from = Emotion,
-    values_from = c(Emotion_Rating)
-  )
+dt_Emotion <- dt2_Emotion
+print(paste("The total number of NA values on emotion ratings is", sum(is.na(dt_Emotion))))
 
-dt_Threat <- select(dt_Threat, Blockname, Taskname, Task, response_id, Block, Angry, Calm, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
-
-dt_Threat <- dt_Threat %>% 
-   group_by(Blockname, Taskname, Task, response_id, Block) %>% 
-   summarize_all(sum, na.rm = TRUE)
-
-
-## For the Toon Block
-
-dt_Toon <- filter(tmp, Blockname == "ScaleToon")
-
-dt_Toon <- dt_Toon %>% 
-  group_by(Emotion) %>% 
-  mutate(id = response_id) %>% 
-  pivot_wider(
-    names_from = Emotion,
-    values_from = c(Emotion_Rating)
-  )
-
-dt_Toon <- select(dt_Toon, Blockname, Taskname, Task, response_id, Block, Angry, Calm, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
-
-dt_Toon <- dt_Toon %>% 
-   group_by(Blockname, Taskname, Task, response_id, Block) %>% 
-   summarize_all(sum, na.rm = TRUE)
+rm(i,x, NA_Num,NA_Replace, dt2_Emotion)
+```
 
 
-# Combine these three data frame in a single one
-Anxiety_Scale <- rbind(dt_Control, dt_Threat, dt_Toon)
+#### Imputating Missing Values 
 
-sum(Anxiety_Scale[,6:13]==-1) # The number of no responses (= -1) to the anxiety scale
-# length(which(Anxiety_Scale$Angry==-1)) # To count the number of no response only for one emotion (i.e: Angry)
+In order to resolve this problem of "participant no response" on the anxiety rating scale after each block, we choose to impute missing data using a "missForest" algorithm and based on all other anxiety rating responses.
 
-# Replace the -1 rating (=no response) to "NA"
-Anxiety_Scale <- Anxiety_Scale %>% mutate(Angry = replace(Angry, Angry==-1, NA),
-                                          Calm = replace(Calm, Calm==-1, NA),
-                                          Anxious = replace(Anxious, Anxious==-1, NA),
-                                          Nervous = replace(Nervous, Nervous==-1, NA),
-                                          Happy = replace(Happy, Happy==-1, NA),
-                                          Tense = replace(Tense, Tense==-1, NA),
-                                          Stressed = replace(Stressed, Stressed==-1, NA),
-                                          Depressed = replace(Depressed, Depressed==-1, NA),)
+```{r Missing anxiety data imputation}
 
-warning("Les non-reponses des participant.e.s (= -1) ont été remplacée par des valeurs manquantes (NA)")
+
+md.pattern(dt_Emotion) # To get the missing pattern on the different variables
+
+# An other way to represent this pattern of missing values
+mice_plot <- aggr(dt_Emotion[,6:13], col=c('navyblue','yellow'),
+                  numbers=TRUE, sortVars=TRUE,
+                  labels=names(dt_Emotion[,6:13]), cex.axis=.7,
+                  gap=3, ylab=c("Missing data","Pattern"))
+
+# Ungroup the dataframe
+dt_Emotion <- dt_Emotion %>%
+  ungroup()
+
+# To use the missForest function, dt_Emotion must be a dataframe and 
+dt_Emotion<- as.data.frame(dt_Emotion)
+dt_imputed <- missForest::missForest(dt_Emotion[c(6:13)], maxiter =10, ntree = 100)
+
+Anxiety_Scale  <- dt_Emotion
+Anxiety_Scale  <- dt_Emotion %>%
+  mutate(dt_imputed$ximp)
+sum(is.na(Anxiety_Scale ))
+
+warning(paste0("Here, We imputed values on the anxiety scale for missing values using the overall dataset. However, we may have to impute values in each specific block and not with an overall imputation because we could make the prediction that the link between all these anxiety items is not the same within each block. Nevertheless it could be a minimal consideration given that the total amount of imputed data is ", sum(is.na(dt_Emotion)), " over a total number of ", (nrow(dt_Emotion) * 8), " anxiety answers: Number of participants (N = ", (nrow(dt_Emotion)/3), ") * 3 blocks * 8 anxiety measures" ))
+
+
+warning("In this chunk, participant non-responses (= -1) have been replaced by missing values (NA).")
 
 # Reverse the calm item
 Anxiety_Scale <- Anxiety_Scale %>% mutate(Calm_Recod = (8-Calm))
-
-dt_Control <- dt_Control %>% mutate(Calm_Recod = (8-Calm))
-dt_Threat <- dt_Threat %>% mutate(Calm_Recod = (8-Calm))
-dt_Toon <- dt_Toon %>% mutate(Calm_Recod = (8-Calm))
 
 # Associate each participant row to its block
 Anxiety_Scale <- Anxiety_Scale %>% mutate(Block = case_when(Blockname == "ScaleControl" ~ "Control",
@@ -368,49 +422,279 @@ rm(list=setdiff(ls(), c("df","Anxiety_Scale"))) # clear workspace except the dat
 #### Calculation of a factorial score
 Here we want to calculate a factorial score for each participant and for each block based on the five items of anxiety feelings during the experiment
 
-```{r}
+```{r Anxiety factorial score}
 tmp <- na.omit(Anxiety_Scale)
-warning("Here, we have removed rows with NA")
+warning("Here, we have removed rows with NA beacause it's a prerequisite for factor analysis. However, given that we previously imputed mussing values on this anxiety measure, we don't have any NA to remove. ")
 
 # Check if it is possible to agregate theses five measure (anxious, nervous, calm, tense, stressed) in an unique factor : 
-dt1_Factor<- na.omit(tmp[,c(6,8:14)])
-
-# Some codes if we want to look if the factorial structure of this scale is the same between different blocks
-#dtCtrl_Factor <- na.omit(dt_Control[,c(6,8:14)])
-#dtThreat_Factor <- na.omit(dt_Threat[,c(6,8:14)])
-#dtToon_Factor <- na.omit(dt_Toon[,c(6,8:14)])
-
+dt1_Factor<- tmp %>%
+  select(Angry, Calm_Recod, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
 
 EFA_dt1 <- factanal(dt1_Factor, factors=2, rotation = "promax") # Promax = Oblique rotation
 print(EFA_dt1, digits = 2, cutoff = .3)
-rm(dt1_Factor,EFA_dt1)
-## We couldn't agregate "Calm" item to other items of anxiety because it is not loaded with the same factor
-# Moreover, items "angry" and "depressed" load with the anxiety factor but to a lesser degree, so we decided not to agregate these items in our factorial score  according to our preregistration
+warning("Based on a factorial analysis on anxiety items, we couldn't agregate 'Calm' item to other anxiety items because this item don't load with the same factor.Moreover, despite items 'angry' and 'depressed' belong to the same factor as anxiety measurements, these 2 items have a lesser loading degree, so we decided not to agregate these items in our factorial score  according to our preregistration")
 
-## Now we calculate a factorial score from these 4 measure of stress
-dt2_Factor <- na.omit(tmp[,c(6,9,11,12)])
+# Some codes if we want to look if the factorial structure of this scale is the same between different blocks
+dtCtrl_Factor1 <- tmp %>%  
+  filter(Block == "Control") %>%
+  select(Angry, Calm_Recod, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
+EFA_dt1_Ctrl <- factanal(dtCtrl_Factor1, factors=2, rotation = "promax")
+
+dtThreat_Factor1 <- tmp %>%  
+  filter(Block == "Threat") %>%
+  select(Angry, Calm_Recod, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
+EFA_dt1_Threat <- factanal(dtThreat_Factor1, factors=2, rotation = "promax")
+
+dtToon_Factor1 <-  tmp %>%  
+  filter(Block == "Toon") %>%
+  select(Angry, Calm_Recod, Anxious, Nervous, Happy, Tense, Stressed, Depressed)
+EFA_dt1_Toon <- factanal(dtToon_Factor1, factors=2, rotation = "promax")
+
+print("Here is the factorial analysis on the anxiety scale for each specific block")
+print(EFA_dt1_Ctrl, digits = 2, cutoff = .3)
+print(EFA_dt1_Threat, digits = 2, cutoff = .3)
+print(EFA_dt1_Toon, digits = 2, cutoff = .3)
+
+warning("In the threat block, the items 'Tense' seems to load to a lesser degree than other anxiety items.")
+
+
+# Compare fit indices in a CFA analysis on the 4 items of interest
+
+# Define the CFA models for each block
+model_General<- 'factor1 =~ Anxious + Nervous + Tense + Stressed'
+model_ctrl <- 'factor1 =~ Anxious + Nervous + Tense + Stressed'
+model_threat <- 'factor1 =~ Anxious + Nervous + Tense + Stressed'
+model_toon <- 'factor1 =~ Anxious + Nervous + Tense + Stressed'
+
+# For a factor that use all items:
+#'factor1 =~ Angry + Calm_Recod + Anxious + Nervous + Happy + Tense + Stressed + Depressed'
+
+# Fit the CFA models
+fit_General <- cfa(model_General, data = dt1_Factor)
+fit_ctrl <- cfa(model_ctrl, data = dtCtrl_Factor1)
+fit_threat <- cfa(model_threat, data = dtThreat_Factor1)
+fit_toon <- cfa(model_toon, data = dtToon_Factor1)
+
+# Compare the model fit indices
+fit_indices <- list (fitMeasures(fit_General, c("cfi", "rmsea", "srmr")), fitMeasures(fit_ctrl, c("cfi", "rmsea", "srmr")), fitMeasures(fit_threat, c("cfi", "rmsea", "srmr")), fitMeasures(fit_toon, c("cfi", "rmsea", "srmr")))
+
+Table_fit_indices <- as.data.frame(fit_indices, col.names = list("Overall_Blocks", "Ctrl_Block", "Threat_Block", "Toon_Block"))
+print(as.matrix(Table_fit_indices))
+
+warning("Although there are some  variability in fit indices on these 3 CFA analysis using only the 4 anxiety items (Tense, Nervous, Anxious, Stressed), the model always show better indices (CFI, RMSEA, and SRMR) for the overall  dataset instead of separating each block individualy. Thus, we decided to calculate a factorial score for each participant without taking in consideration a differential factorial structure of this anxiety scale within each block of trials.")
+
+## Calculate a factorial score from these 4 measure of stress
+dt2_Factor <- tmp %>%
+  select(Anxious, Nervous, Tense, Stressed)
 FactorialScore <- fa(dt2_Factor, nfactors=1, rotate = "promax", scores = "Bartlett")
-tmp$Fear_Score<-FactorialScore$scores # Assign a threat score to each ppt calculated on the 4 measures of stress
+
+# Assign a threat score to each ppt calculated on the 4 measures of stress (for each block)
+tmp$Fear_Score<-FactorialScore$scores 
 tmp$Fear_Score <- as.numeric(tmp$Fear_Score)
 
 # Calculating a mean rather than a factorial score
-tmp <- tmp %>% mutate(Fear_Mean = mean(Anxious, Nervous, Stressed, Tense))
+tmp <- tmp %>% 
+  mutate(Fear_Mean = rowMeans(select(tmp,c(Anxious, Nervous, Stressed, Tense))))
 
 # Calculate the correlation between the factorial or the mean score of each participant on these 4 items
-cor.test(tmp$Fear_Score,tmp$Fear_Mean)
+Cor_FactorMean <- cor.test(tmp$Fear_Score,tmp$Fear_Mean)
+
+warning(paste0("According to our pre-registration, we calculate a factorial score on this anxiety scale for each participant. This type of data imputation to build a composite score on this scale seems quite similar to a Mean calulation since the correlation between participant factorial score and participant mean is really high: r(", Cor_FactorMean[["parameter"]][["df"]],") = ", round(Cor_FactorMean[["estimate"]][["cor"]],3), " ; p-value = ", Cor_FactorMean[["p.value"]], "."))
 
 Anxiety_Scale <- tmp
 
 rm(list=setdiff(ls(), c("df","Anxiety_Scale"))) # clear workspace except the data frame and the "Anxiety_Scale" dataframe
 ```
 
-## Questionnaire dataframe
-Associate the data from the experiment to the data from the questionnaire
 
+### Trial counts
 
+Here, we want to add the number order of each trial for each participant.
+Moreover, we want to add the number of trials since the last sound (scream or vocalization)
 
-```{r}
+#### Overall counting
+
+```{r Counting all trials}
 tmp <- df
+
+
+# Initialize the trial number and participant ID variables
+trial_number <- 0
+prev_participant <- 1
+
+# Create an empty vector to store the trial numbers
+trial_numbers <- c()
+
+# Iterate over the rows in the dataframe
+for (i in 1:nrow(tmp)) {
+  if (tmp$response_id[i] != prev_participant) {
+    # If a new participant is encountered, reset the trial number to 1
+    trial_number <- 0
+    prev_participant <- tmp$response_id[i]
+  }
+  
+  if (tmp$Task[i] == "Trial") {
+    # Increment the trial number for each trial task
+    trial_number <- trial_number + 1
+    trial_numbers <- c(trial_numbers, trial_number)
+  }
+  else {
+    # If the task is not a trial, assign NA to the trial number
+    trial_numbers <- c(trial_numbers, NA)
+  }
+  # Store the trial number in the vector
+}
+
+# Add the trial numbers to the dataframe as a new column
+tmp$Counting_Trial <- trial_numbers
+
+
+df <- tmp
+rm(list=setdiff(ls(), c("df","Anxiety_Scale"))) # clear workspace except the data frame and the "Anxiety_Scale" dataframe
+
+
+```
+
+
+#### Counting between two sounds
+
+```{r Counting trials between each sound}
+
+tmp <- df
+
+# Initialize the trial number, participant ID, and block encountered variables
+trial_number <- 0
+prev_participant <- 1
+prev_sound <- NA
+block_Control_encountered <- FALSE
+block_Threat_encountered <- FALSE
+block_Toon_encountered <- FALSE
+
+# Create an empty vector to store the trial numbers
+trial_numbers <- c()
+
+# Iterate over the rows in the dataframe
+for (i in 1:nrow(tmp)) {
+  if (tmp$response_id[i] != prev_participant || !is.na(tmp$Sound[i])) {
+    # If a new participant is encountered or Sound is not NA, reset the trial number to 1 and block encountered flag
+    trial_number <- 0
+    prev_participant <- tmp$response_id[i]
+    prev_sound <- tmp$Sound[i]
+    block_Control_encountered <- FALSE
+    block_Threat_encountered <- FALSE
+    block_Toon_encountered <- FALSE
+
+  }
+  
+    if (tmp$Block[i] == "Control") {
+    if (!block_Control_encountered) {
+      # If the block is "Control" and it's the first time encountered, reset the trial number to 1
+      trial_number <- 0
+      block_Control_encountered <- TRUE
+    }
+  }   
+  
+  if (tmp$Block[i] == "Threat") {
+    if (!block_Threat_encountered) {
+      # If the block is "Threat" and it's the first time encountered, reset the trial number to 1
+      trial_number <- 0
+      block_Threat_encountered <- TRUE
+    }
+  }   
+    if (tmp$Block[i] == "Toon") {
+    if (!block_Toon_encountered) {
+      # If the block is "Toon" and it's the first time encountered, reset the trial number to 1
+      trial_number <- 0
+      block_Toon_encountered <- TRUE
+    }
+  }   
+  if (tmp$Task[i] == "Trial") {
+    # Increment the trial number for each trial task
+    trial_number <- trial_number + 1
+    trial_numbers <- c(trial_numbers, trial_number)
+    # Store the trial number in the vector
+    
+  }
+  else {
+    # If the task is not a trial, assign NA to the trial number
+    trial_numbers <- c(trial_numbers, NA)
+  }
+}
+
+# Add the trial numbers to the dataframe as a new column
+tmp$Counting_Sounds <- trial_numbers
+
+df <- tmp
+rm(list=setdiff(ls(), c("df","Anxiety_Scale"))) # clear workspace except the data frame and the "Anxiety_Scale" dataframe
+
+```
+
+
+
+Here, we have partially done with experiment data cleaning
+
+
+## Questionnaire dataframe
+
+### Rename variables 
+
+Survey CodeBook
+
+- Participant: Participant name
+
+- (PTSD1:PTSD17): Participant answers to the PTSD scale. They had to answer on a 5-likert scale from 1 = 'Not at all' to 5 = 'Really often'. Translated items of this scale are:
+    - Being disturbed by memories, thoughts or images related to this stressful episode. 
+    - Being disturbed by repeated dreams related to this event. 
+    - Suddenly acting or feeling as if the stressful episode is happening again (as if you are reliving it).
+    - Feeling very upset when something reminds you of the stressful episode. 
+    - Having physical reactions, such as a pounding heart, difficulty breathing or sweating when you are reminded of the stressful event.
+    - Avoiding thinking or talking about your stressful episode or avoiding feelings related to it. 
+    - Avoiding activities or situations because they remind you of your stressful episode. 
+    - Having difficulty remembering important parts of the stressful experience. 
+    - Losing interest in activities you used to enjoy. 
+    - Feeling distant or cut off from other people. 
+    - Feeling emotionally numb or unable to have feelings of love for those close to you. 
+    - Feeling as if the future is shortened or blocked. 
+    - Having difficulty falling asleep or staying asleep. 
+    - Feeling irritable or having angry outbursts. 
+    - Having difficulty concentrating. 
+    - Being in a state of super-alarm, constantly on the defensive. 
+    - Feeling irritated or easily startled.
+    
+- PTSD_Score: The total score of each participant on the PTSD scale. This calculation is based on the sum of each PTSD item (from 17 to 85)
+
+- PTSD_Diag: A dichotomous variable which carategorize participants on a PTSD diagnosis. Participants higher than 61 on this scale (which refer to a score of 44 on the original scale with answers from 0 to 4) are assigned to the Diagnostic group ("Diag") whereas others are bellow the PTSD diagnostic threshold ("NoDiag")
+
+- Anxiety scale Pretest: Participants answers on the anxiety scale at th ebeginning of the experiment:
+    - Angry_pretest: Participant answer on the angry item from the anxiety scale ("I currently feel angry"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Anxious_pretest: Participant answer on the anxious item from the anxiety scale ("I currently feel anxious"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Happy_pretest: Participant answer on the happy item from the anxiety scale ("I currently feel happy"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Depressed_pretest: Participant answer on the depressed item from the anxiety scale ("I'm currently feeling depressed"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Tense_pretest: Participant answer on the tense item from the anxiety scale ("I'm currently feeling tense"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Calm_pretest: Participant answer on the calm item from the anxiety scale ("I'm currently feeling calm"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Stressed_pretest: Participant answer on the stressed item from the anxiety scale ("I feel stressed at the moment"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    - Nervous_pretest: Participant answer on the nervous item from the anxiety scale ("I'm currently feeling nervous"). Responses on a 7-likert scale, from 1 = "Not at all" to 7 = "Extremely".
+    
+
+- Sound_Calibration: Check whether participants correctly heard sounds after sound calibration for this experiment. On this question participants who respond '1' were redirected to the next "Sound_Problem" question, whereas participants who respond '2' or '3' went directly to the spatial cueing task completion. Responses on this scale were: 
+    - I can't hear any sound.
+    - I can hear the sound but it doesn't seem unpleasant to me even though my computer is at maximum volume.
+    - I can hear the sound at a level that I personally find unpleasant.
+
+- Sound_Problem: Participants who reported a problem on the "Sound_Calibration" question were redirected to this question in order to resolve their sound problem. Then if they responded '2' to this item, they were redirected to the "Sound_Calibration" questions. In an other way, they were directed to the end of the survey, stoping the experiment. Responses on this scale were: 
+    - I have a sound problem: end this experiment.
+    - I've solved my sound problem: restart the volume calibration.
+
+
+- Task_Type: Which spatial cueing task participants have to perform:
+    - 1 = SpatialCueing_Controllability : In the threat and the Toon Blocks, participants think that sound happening is linked to their performance and that they can decrease the number of screams or vocalise improving their performance. 
+    - 2 = = SpatialCueing_Random : In the threat and the Toon Blocks, participants think that sounds happens randomly and are not linked to their personal performance.
+    
+
+`warning("I may have forgotten some variables I built in this codebook. I have to ckeck the final data frame to see if there is no missing variable !!!")`
+
+
+```{r Open and rename Survey data}
 
 tmp2 <- data <- read_csv("Data/data.csv")
 #tmp2$Ppt <- NA
@@ -452,25 +736,33 @@ names(tmp2)[27] <- "Nervous_pretest"
 
 tmp2 <- tmp2 %>% mutate(Calm_Recod_Pretest = (8-Calm_pretest))
 
-dt1_Factor<- na.omit(tmp2[,c(20:24,26:27, 50)])
-EFA_dt1 <- factanal(dt1_Factor, factors=2, rotation = "promax") # Promax = Oblique rotation
-print(EFA_dt1, digits = 2, cutoff = .3)
-rm(dt1_Factor,EFA_dt1)
+# Build dataframe
+dt1_Factor_Pretest <- tmp2 %>%
+  select(Angry_pretest, Calm_Recod_Pretest, Anxious_pretest, Nervous_pretest, Happy_pretest, Tense_pretest, Stressed_pretest, Depressed_pretest) %>%
+  na.omit()
 
-dt2_Factor <- na.omit(tmp2[,c(21,24,26,27)])
-FactorialScore <- fa(dt2_Factor, nfactors=1, rotate = "promax", scores = "Bartlett")
-tmp2$Fear_Score_Pretest<-FactorialScore$scores # Assign a threat score to each ppt calculated on the 4 measures of stress
+EFA_dt1_Pretest <- factanal(dt1_Factor_Pretest, factors=2, rotation = "promax") # Promax = Oblique rotation
+print(EFA_dt1_Pretest, digits = 2, cutoff = .3)
+
+warning("Similarily to our first facorial analysis on anxiety scale, items 'angry' and 'depressed' belong to the same factor as anxiety measurements, but these 2 items show a lesser loading degree. So we decided not to agregate these items in our factorial score according to our preregistration. However, contrary to previous analysis, Calm item load on the same factor this time. Nevertheless, since loading of this item is lesser and in order to maintain coherence in our factorial score calculations, we decided to not agregate this item in the composite score.")
+
+## Calculate a factorial score from these 4 measure of stress
+dt2_Factor_Pretest <- tmp2 %>%
+  select(Anxious_pretest, Nervous_pretest, Tense_pretest, Stressed_pretest) %>%
+  na.omit()
+FactorialScore <- fa(dt2_Factor_Pretest, nfactors=1, rotate = "promax", scores = "Bartlett")
+
+# Assign a threat score to each ppt calculated on the 4 measures of stress
+tmp2$Fear_Score_Pretest<-FactorialScore$scores 
 tmp2$Fear_Score_Pretest <- as.numeric(tmp2$Fear_Score_Pretest)
-rm(dt2_Factor,FactorialScore)
 
 # Calculating a mean rather than a factorial score
 tmp2$Fear_Mean_Pretest<- apply(tmp2[,c(21,24,26,27)], 1, mean)
-cor.test(tmp2$Fear_Score_Pretest,tmp2$Fear_Mean_Pretest)
+Cor_FactorMean <- cor.test(tmp2$Fear_Score_Pretest,tmp2$Fear_Mean_Pretest)
 
-#tmp2 <- tmp2 %>% mutate(Fear_Mean_Pretest = mean(Anxious_pretest, Tense_pretest, Stressed_pretest, Nervous_pretest))
-warning("Pk mutate ne fonctionne pas ici pour calculer la moyenne ???")
+warning(paste0("Similarily to previous factorial analysis, the correlation between participant factorial score and participant mean is really high: r(", Cor_FactorMean[["parameter"]][["df"]],") = ", round(Cor_FactorMean[["estimate"]][["cor"]],4), " ; p-value = ", Cor_FactorMean[["p.value"]], "."))
 
-
+rm(dt1_Factor_Pretest,EFA_dt1_Pretest, dt2_Factor_Pretest, FactorialScore, Cor_FactorMean)
 
 
 names(tmp2)[28] <- "Sound_Calibration"
@@ -509,119 +801,72 @@ names(tmp2)[46] <- "TIME_Start"
 names(tmp2)[47] <- "TIME_End"
 names(tmp2)[48] <- "TIME_Total"
 
+data <- tmp2
+rm(list=setdiff(ls(), c("df","Anxiety_Scale", "data"))) # clear workspace except the data frame and the "Anxiety_Scale" dataframe
+
+```
+
+### Combine Experiment to Survey
+Associate the data from the experiment to the data from the questionnaire
+
+```{r Combine Experiment to Survey}
+tmp <- df
+tmp2 <- data
 
 tmp <- dplyr::left_join(tmp, tmp2, by="Ppt")
-tmp <- dplyr::left_join(tmp, Anxiety_Scale, by= c("response_id","Block"))
+tmp <- dplyr::left_join(tmp, Anxiety_Scale, by= c("response_id","Block","Taskname","Task","Blockname"))
 
 
-df <- tmp
+df_Final <- tmp
 
-rm(list=setdiff(ls(), c("df"))) # clear workspace except the data frame
+rm(list=setdiff(ls(), c("df", "df_Final", "data"))) # clear workspace except the data frames
+# df is the dataframe built based on the experiment 
+# data is the questionnaire dataframe after opening it
+# df_Final is the association between df and data (after some modifications on data)
+
 ```
+
+
 
 ## Other cleanings
 
-```{r}
-tmp <- df
 
-tmp <- tmp %>% filter(Block != "Training" &
-                        Block != "Vocalization" &
-                        Block != "Scream" &
-                        Block != "Scale")
+### Removing Rows and Columns
 
-warning(paste("Ici, nous supprimons toutes les lignes de l'expérience qui ne mesurent pas des temps de réaction. Le total des lignes supprimées est n =", (table(df$Block)[[2]] + table(df$Block)[[3]] + table(df$Block)[[6]] + table(df$Block)[[7]])))
+```{r Other Cleanings}
 
-# Check the number of removed rows
-near((nrow(tmp) + table(df$Block)[[2]] + table(df$Block)[[3]] + table(df$Block)[[6]] + table(df$Block)[[7]]),nrow(df))
+tmp <- df_Final 
 
-tmp <- tmp %>% filter(Response_Status==1)
+tmp <- tmp %>%
+  select(-c(Emotion_Rating, Emotion_Type, Emotion, Sound_Name)) %>%
+  filter(Task != "Emotion")
+  
+warning("Here, we have removed columns and rows associated with anxiety ratings since these informations have been grouped in the 'Anxiety_Scale' dataframe. We have also removed the 'Sound_Name' variable since this column give the same information as Sound. The number of removed rows is, n = ", table(df_Final$Block)[[2]])
 
-warning(paste("Ici, nous supprimons toutes les lignes de l'expérience ou les participant.e.s ont fait une erreur ou n'ont pas répondu. Le total des lignes supprimées est n =", (111456-93491)))
-
-df <- tmp
-
-rm(list=setdiff(ls(), c("df"))) # clear workspace except the data frame
-```
-
-
-# Analysis
-
-## Variable check 
-
-### Anxiety
-
-```{r}
-
-tmp <- Anxiety_Scale
-tmp <- tmp %>% mutate(Block_Recod = case_when(Blockname == "ScaleControl" ~ -1,
-                                              Blockname == "ScaleToon" ~ -1,
-                                              Blockname == "ScaleThreat" ~ 2))
-
-
-Test <- lmer(Fear_Score ~ Block_Recod + + (1|response_id), data = tmp)
-summary(Test)
-Mean <- tmp %>% 
-  group_by(Blockname) %>%
-  summarise(mean=mean(Fear_Score), sd=sd(Fear_Score), n=length(response_id))
-view(Mean)
+df_Final <- tmp
+rm(list=setdiff(ls(), c("df","data", "df_Final"))) # clear workspace except the data frame and the "Anxiety_Scale" dataframe
 
 ```
 
-## Main analysis
 
-```{r}
-tmp <- df
+## Save dataframe
 
-tmp <- tmp %>%filter(Cueing_Validity != "NoValidity")
+```{r Dataframe Saving}
 
-warning("Attention, ici, nous avons supprimé tous les essais ou aucun indice n'était presenté pour simplifier les analyses.")
-
-tmp <- tmp %>% mutate(Block_Recod = case_when(Block == "Control" ~ -0.5,
-                                              Block == "Toon" ~ 0,
-                                              Block == "Threat" ~ 0.5))
-
-tmp <- tmp %>% mutate(Congruency_Recod = case_when(Congruency == "Incongruent" ~ -0.5,
-                                                   Congruency == "Congruent" ~ 0.5))
-
-tmp <- tmp %>% mutate(Cueing_Validity_Recod = case_when(Cueing_Validity == "Invalid" ~ -0.5,
-                                                        Cueing_Validity == "Valid" ~ 0.5))
-
-tmp <- tmp %>% mutate(Condition_Recod = case_when(Condition == "Controlability" ~ -0.5,
-                                                  Condition == "Random" ~ 0.5))
-
-
-Test <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Block_Recod + (1|response_id), data = tmp)
-summary(Test)
-
-
-tmp2 <- tmp %>% filter(Block != "Toon")
-Test <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Block_Recod + (1|response_id), data = tmp2)
-summary(Test)
-Mean <- tmp2 %>% 
-  group_by(Congruency, Cueing_Validity, Block) %>%
-  summarise(mean=mean(RT), sd=sd(RT), n=length(response_id))
-view(Mean)
-
-# Controlability effect: comparison between Threat controlability and Threat random conditions
-tmp3 <- tmp %>% filter(Block == "Threat") # Remove the control and toon conditions
-CtrlEffect <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Condition_Recod + (1|response_id), data = tmp3)
-summary(CtrlEffect)
-MeanCtrl <- tmp3 %>% 
-  group_by(Congruency, Cueing_Validity, Condition) %>%
-  summarise(mean=mean(RT), sd=sd(RT), n=length(response_id))
-view(MeanCtrl)
-
-# Controlability effect: comparison between control and threat controlability conditions
-tmp4 <- tmp2 %>% filter(Condition == "Controlability") # Remove the control and toon conditions
-CtrlEffect2 <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Block_Recod + (1|response_id), data = tmp4)
-summary(CtrlEffect2)
-MeanCtrl2 <- tmp4 %>% 
-  group_by(Congruency, Cueing_Validity, Block) %>%
-  summarise(mean=mean(RT), sd=sd(RT), n=length(response_id))
-view(MeanCtrl2)
+write.csv(df_Final, file = "Output/Transformed_Data/Final_df_ControllabilitySpatialCueing.csv")
 
 ```
 
- ctrl +Maj + C : add comments # on multiple lines
+
+
+#### R tips:
+
+ctrl+ Maj + C : add comments # on multiple lines
 
 ctrl + I : aligner les lignes
+
+ctrl + Alt + I : New chunk
+
+Remove any row with NA’s in specific column
+df %>%
+  filter(!is.na(column_name))

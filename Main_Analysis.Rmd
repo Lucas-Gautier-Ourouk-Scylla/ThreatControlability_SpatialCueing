@@ -1,0 +1,121 @@
+---
+title: "Main_Analysis"
+author: "Ourouk Scylla Lucas Gautier"
+date: '2023-06-19'
+output: html_document
+---
+
+
+
+```{r Other Cleanings}
+tmp <- df_Final
+
+tmp <- tmp %>% filter(Block != "Training" &
+                        Block != "Vocalization" &
+                        Block != "Scream" &
+                        Block != "Scale")
+
+warning(paste("Ici, nous supprimons toutes les lignes de l'expérience qui ne mesurent pas des temps de réaction. Le total des lignes supprimées est n =", (table(df$Block)[[2]] + table(df$Block)[[3]] + table(df$Block)[[6]] + table(df$Block)[[7]])))
+
+# Check the number of removed rows
+near((nrow(tmp) + table(df$Block)[[2]] + table(df$Block)[[3]] + table(df$Block)[[6]] + table(df$Block)[[7]]),nrow(df))
+
+tmp <- tmp %>% filter(Response_Status==1)
+
+warning(paste("Ici, nous supprimons toutes les lignes de l'expérience ou les participant.e.s ont fait une erreur ou n'ont pas répondu. Le total des lignes supprimées est n =", (111456-93491)))
+
+df_RT_Accurate <- tmp
+
+rm(list=setdiff(ls(), c("df", "df_Final", "data", "df_RT_Accurate"))) # clear workspace except the data frame
+```
+
+
+# Analysis
+
+## Variable check 
+
+### Anxiety
+
+```{r Variable check}
+
+tmp <- df_RT_Accurate
+tmp <- tmp %>% mutate(Block_Recod = case_when(Blockname.y == "ScaleControl" ~ -1,
+                                              Blockname.y == "ScaleToon" ~ -1,
+                                              Blockname.y == "ScaleThreat" ~ 2))
+
+
+Test <- lmer(Fear_Score ~ Block_Recod + + (1|response_id), data = tmp)
+summary(Test)
+Mean <- tmp %>% 
+  group_by(Blockname.y) %>%
+  summarise(mean=mean(Fear_Score), sd=sd(Fear_Score), n=length(response_id))
+view(Mean)
+
+```
+
+## Main analysis
+
+```{r Main analysis}
+tmp <- df_RT_Accurate
+
+tmp <- tmp %>%filter(Cueing_Validity != "NoValidity")
+
+warning("Attention, ici, nous avons supprimé tous les essais ou aucun indice n'était presenté pour simplifier les analyses.")
+
+tmp <- tmp %>% mutate(Block_Recod = case_when(Block == "Control" ~ -0.5,
+                                              Block == "Toon" ~ 0,
+                                              Block == "Threat" ~ 0.5))
+
+tmp <- tmp %>% mutate(Congruency_Recod = case_when(Congruency == "Incongruent" ~ -0.5,
+                                                   Congruency == "Congruent" ~ 0.5))
+
+tmp <- tmp %>% mutate(Cueing_Validity_Recod = case_when(Cueing_Validity == "Invalid" ~ -0.5,
+                                                        Cueing_Validity == "Valid" ~ 0.5))
+
+tmp <- tmp %>% mutate(Condition_Recod = case_when(Condition == "Controlability" ~ -0.5,
+                                                  Condition == "Random" ~ 0.5))
+
+
+Test <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Block_Recod + (1|response_id), data = tmp)
+summary(Test)
+
+
+tmp2 <- tmp %>% filter(Block != "Toon")
+Test <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Block_Recod + (1|response_id), data = tmp2)
+summary(Test)
+Mean <- tmp2 %>% 
+  group_by(Congruency, Cueing_Validity, Block) %>%
+  summarise(mean=mean(RT), sd=sd(RT), n=length(response_id))
+view(Mean)
+
+# Controlability effect: comparison between Threat controlability and Threat random conditions
+tmp3 <- tmp %>% filter(Block == "Threat") # Remove the control and toon conditions
+CtrlEffect <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Condition_Recod + (1|response_id), data = tmp3)
+summary(CtrlEffect)
+MeanCtrl <- tmp3 %>% 
+  group_by(Congruency, Cueing_Validity, Condition) %>%
+  summarise(mean=mean(RT), sd=sd(RT), n=length(response_id))
+view(MeanCtrl)
+
+# Controlability effect: comparison between control and threat controlability conditions
+tmp4 <- tmp2 %>% filter(Condition == "Controlability") # Remove the control and toon conditions
+CtrlEffect2 <- lmer(RT ~ Congruency_Recod*Cueing_Validity_Recod*Block_Recod + (1|response_id), data = tmp4)
+summary(CtrlEffect2)
+MeanCtrl2 <- tmp4 %>% 
+  group_by(Congruency, Cueing_Validity, Block) %>%
+  summarise(mean=mean(RT), sd=sd(RT), n=length(response_id))
+view(MeanCtrl2)
+
+```
+
+Link PSTD Anxiety
+
+```{r Anxiety and PTSD links}
+#RegPTSD <- lmer(Fear_Score_Pretest.y ~ PTSD_Score.y + (1|response_id), data = df_Final)
+#summary(RegPTSD)
+
+#cor.test(df_Final$Fear_Score_Pretest.y, df_Final$PTSD_Score.y )
+
+#cor.test(df_Fin$Fear_Score_Pretest.y, df_Final$PTSD_Score.y)
+
+```
